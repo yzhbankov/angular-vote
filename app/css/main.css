@@ -1,0 +1,29 @@
+.menu {
+  background-color: black;
+  color: white; }
+
+.navbar-fixed-left {
+  width: 140px;
+  position: fixed;
+  -webkit-border-radius: 0;
+          border-radius: 0;
+  height: 100%; }
+
+.navbar-fixed-left .navbar-nav > li {
+  float: none;
+  width: 139px; }
+
+.navbar-fixed-left + .container {
+  padding-left: 160px; }
+
+.navbar-fixed-left .navbar-nav > li > .dropdown-menu {
+  margin-top: -50px;
+  margin-left: 140px; }
+
+.content {
+  margin: 50px auto; }
+
+.title {
+  margin-top: 50px;
+  font-size: 30px;
+  text-align: center; }
