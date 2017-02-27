@@ -13,6 +13,9 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/signin', {
             templateUrl: 'js/views/signinview.html'
         })
+        .when('/logout', {
+            templateUrl: 'js/views/homeview.html'
+        })
         .when('/settings', {
             templateUrl: 'js/views/settingsview.html'
         });

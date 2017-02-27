@@ -1,7 +1,8 @@
 /**
  * Created by Iaroslav Zhbankov on 26.02.2017.
  */
-app.controller('signupCtrl', ['$scope', '$http', '$location', function signupCtrl($scope, $http, $location) {
+app.controller('signupCtrl', ['$scope', '$http', 'Auth', function signupCtrl($scope, $http, Auth) {
+    console.log(Auth.getAuthData());
     $scope.showDetails = false;
     console.log($scope.author);
     $scope.submit = function (username, email, password) {

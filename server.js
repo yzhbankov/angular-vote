@@ -10,7 +10,7 @@ var session = require('express-session');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({secret: "secretword", resave: false, saveUninitialized: true}));
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Credentials', true);
     res.header('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
@@ -18,8 +18,9 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.get('/test', function (req, res) {
-    res.send('connect to server');
+app.get('/', function (req, res) {
+    console.log(session.user);
+    res.send(req.session.user);
 });
 
 app.post('/signup', function (req, res) {
@@ -40,15 +41,40 @@ app.post('/signup', function (req, res) {
                     "password": password
                 }, function (err, result) {
                     if (!err) {
-                        console.log("user " + username +" added successfuly");
+                        console.log("user " + username + " added successfuly");
                     }
                 });
                 db.close();
-                console.log('user '+username+' is signing up');
+                console.log('user ' + username + ' is signing up');
                 res.send(username);
             }
         });
     });
+});
+
+app.post('/signin', function (req, res) {
+    var username = req.query.user;
+    var password = req.query.password;
+
+    MongoClient.connect(url, function (err, db) {
+        db.collection('users').findOne({"username": username, "password": password}, function (err, item) {
+            if (item) {
+                req.session.user = username;
+                db.close();
+                console.log("user existing");
+                res.send({success: true, username: req.session.user});
+            } else {
+                db.close();
+                res.send({success: false, username: null});
+            }
+        });
+    });
+});
+
+app.get('/logout', function (req, res) {
+    req.session.destroy();
+    console.log("session ends");
+    res.send('success');
 });
 
 app.listen(3000, function () {
