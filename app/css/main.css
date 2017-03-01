@@ -3,7 +3,7 @@
   color: white; }
 
 .navbar-fixed-left {
-  width: 140px;
+  width: 180px;
   position: fixed;
   -webkit-border-radius: 0;
           border-radius: 0;
@@ -27,3 +27,10 @@
   margin-top: 50px;
   font-size: 30px;
   text-align: center; }
+
+th {
+  background-color: #4CAF50;
+  color: white; }
+
+.expert {
+  width: 100px; }

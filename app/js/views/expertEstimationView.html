@@ -1,1 +1,58 @@
 <div class="title">Expert Estimation</div>
+<div class="container" ng-controller="ExpertCtrl">
+    <form name="myForm">
+        <label for="repeatSelect"> Количество экспертов: </label>
+        <select name="repeatSelect" id="repeatSelect" ng-model="experts.expert">
+            <option ng-repeat="option in experts.availableOptions" value="{{option.name}}">{{option.name}}</option>
+        </select>
+    </form>
+    <table>
+        <col width="200px">
+        <col ng-repeat="i in getNumber(experts.expert)" width="100px">
+        <tr>
+            <th>Показатель</th>
+            <th  ng-repeat="i in getNumber(experts.expert)">Expert {{i}}</th>
+        </tr>
+        <tr>
+            <td>Насколько просто и быстро можно получить страховую услугу</td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+        </tr>
+        <tr>
+            <td>Насколько страховая компания заслуживает доверие</td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+        </tr>
+        <tr>
+            <td>Привлекательность страховых тарифов</td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+        </tr>
+        <tr>
+            <td>Оптимальность при соотношении цена – качество</td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+        </tr>
+        <tr>
+            <td>Объем страхового покрытия</td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+        </tr>
+        <tr>
+            <td>Размер франшизы</td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+        </tr>
+        <tr>
+            <td>Количество основных и дополнительных услуг</td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+        </tr>
+        <tr>
+            <td>Степень учета всего спектра возможных рисков</td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+        </tr>
+        <tr>
+            <td>Простота норм страхового договора и ориентация на защиту интересов клиента</td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+        </tr>
+        <tr>
+            <td>Быстрота, качество и справедливость урегулирования страховых случаев</td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+        </tr>
+    </table>
+    <button class="btn btn-success" ng-click="submit">Submit</button>
+</div>
