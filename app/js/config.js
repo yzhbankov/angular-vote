@@ -16,6 +16,18 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/logout', {
             templateUrl: 'js/views/homeview.html'
         })
+        .when('/expert-estimation', {
+            templateUrl: 'js/views/expertEstimationView.html'
+        })
+        .when('/service-estimation', {
+            templateUrl: 'js/views/serviceEstimationView.html'
+        })
+        .when('/competitor-estimation', {
+            templateUrl: 'js/views/competitorEstimationView.html'
+        })
+        .when('/graph', {
+            templateUrl: 'js/views/graphView.html'
+        })
         .when('/settings', {
             templateUrl: 'js/views/settingsview.html'
         });

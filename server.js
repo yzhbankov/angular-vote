@@ -7,9 +7,18 @@ var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
 var url = 'mongodb://localhost:27017/voteApp';
 var session = require('express-session');
+var cookieParser = require('cookie-parser');
+var MongoStore = require("connect-mongo")(session);
+var mongoose = require("mongoose");
 
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(session({secret: "secretword", resave: false, saveUninitialized: true}));
+app.use(cookieParser());
+app.use(session({secret: "secretword",
+    resave: true,
+    saveUninitialized: false,
+    rolling: true,
+    store: new MongoStore({url: url})}));
+
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Credentials', true);
@@ -19,8 +28,18 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', function (req, res) {
-    console.log(session.user);
-    res.send(req.session.user);
+    console.log(req.session.user);
+    var user = req.session.user;
+    if (user){
+        res.send(user);
+    } else {
+        res.send(null);
+
+    }
+});
+
+app.get('/test', function (req, res) {
+    console.log(req.session);
 });
 
 app.post('/signup', function (req, res) {
@@ -62,6 +81,7 @@ app.post('/signin', function (req, res) {
                 req.session.user = username;
                 db.close();
                 console.log("user existing");
+                console.log(req.session);
                 res.send({success: true, username: req.session.user});
             } else {
                 db.close();

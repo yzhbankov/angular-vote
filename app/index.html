@@ -44,9 +44,9 @@
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <span
                             class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li class="signup-btn"><a href="signup">Signup</a></li>
-                            <li class="signup-btn"><a href="signin">Signin</a></li>
-                            <li class="signup-btn"><a href="logout">Logout</a></li>
+                            <li class="signup-btn"><a href="signup">Регистрация</a></li>
+                            <li class="signup-btn"><a href="signin">Вход</a></li>
+                            <li class="signup-btn"><a href="logout">Выход</a></li>
                         </ul>
                     </li>
 
@@ -59,10 +59,22 @@
 
 <!--Left side menu-->
 <div class="navbar navbar-inverse navbar-fixed-left">
-    <a class="navbar-brand" href="/">Home</a>
+    <a class="navbar-brand" href="/">Домой</a>
     <ul class="nav navbar-nav">
-        <li><a href="dashboard">Dashboard</a></li>
-        <li><a href="settings">Settings</a></li>
+        <li class="dropdown" id="dropdown">
+            <a data-toggle="collapse" href="#dropdown-lvl2"> Новый расчет  </a>
+            <div id="dropdown-lvl2" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul class="nav navbar-nav">
+                        <li><a href="expert-estimation">Оценка согласованности экспертов</a></li>
+                        <li><a href="service-estimation">Оценка услуги</a></li>
+                        <li><a href="competitor-estimation">Оценка услуги конкурента</a></li>
+                        <li><a href="graph">Графическое сравнение показателей</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li><a href="settings">Настройки аккаунта</a></li>
     </ul>
 </div>
 <!--end of left side menu-->
