@@ -11,48 +11,82 @@
         <col ng-repeat="i in getNumber(experts.expert)" width="100px">
         <tr>
             <th>Показатель</th>
-            <th  ng-repeat="i in getNumber(experts.expert)">Expert {{i}}</th>
+            <th  ng-repeat="i in getNumber(experts.expert)">Эксперт {{i}}</th>
+            <th>Сумма рангов</th>
+            <th>Отклонение от среднего</th>
+            <th>Квадрат отклонения от среднего</th>
         </tr>
         <tr>
             <td>Насколько просто и быстро можно получить страховую услугу</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input data-num = '1' data-expert="{{i}}"></td>
+            <td data-rang="1"></td>
+            <td data-average="1"></td>
+            <td data-sqrt="1"></td>
         </tr>
         <tr>
             <td>Насколько страховая компания заслуживает доверие</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input data-num = "2" data-expert="{{i}}"></td>
+            <td data-rang="2"></td>
+            <td data-average="2"></td>
+            <td data-sqrt="2"></td>
         </tr>
         <tr>
             <td>Привлекательность страховых тарифов</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input data-num = "3" data-expert="{{i}}"></td>
+            <td data-rang="3"></td>
+            <td data-average="3"></td>
+            <td data-sqrt="3"></td>
         </tr>
         <tr>
             <td>Оптимальность при соотношении цена – качество</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input data-num = "4" data-expert="{{i}}"></td>
+            <td data-rang="4"></td>
+            <td data-average="4"></td>
+            <td data-sqrt="4"></td>
         </tr>
         <tr>
             <td>Объем страхового покрытия</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input data-num = "5" data-expert="{{i}}"></td>
+            <td data-rang="5"></td>
+            <td data-average="5"></td>
+            <td data-sqrt="5"></td>
         </tr>
         <tr>
             <td>Размер франшизы</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input data-num = "6" data-expert="{{i}}"></td>
+            <td data-rang="6"></td>
+            <td data-average="6"></td>
+            <td data-sqrt="6"></td>
         </tr>
         <tr>
             <td>Количество основных и дополнительных услуг</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input data-num = "7" data-expert="{{i}}"></td>
+            <td data-rang="7"></td>
+            <td data-average="7"></td>
+            <td data-sqrt="7"></td>
         </tr>
         <tr>
             <td>Степень учета всего спектра возможных рисков</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input data-num = "8" data-expert="{{i}}"></td>
+            <td data-rang="8"></td>
+            <td data-average="8"></td>
+            <td data-sqrt="8"></td>
         </tr>
         <tr>
             <td>Простота норм страхового договора и ориентация на защиту интересов клиента</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input data-num = "9" data-expert="{{i}}"></td>
+            <td data-rang="9"></td>
+            <td data-average="9"></td>
+            <td data-sqrt="9"></td>
         </tr>
         <tr>
             <td>Быстрота, качество и справедливость урегулирования страховых случаев</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(experts.expert)"><input data-num = "10" data-expert="{{i}}"></td>
+            <td data-rang="10"></td>
+            <td data-average="10"></td>
+            <td data-sqrt="10"></td>
         </tr>
+        <tr data-result="result"></tr>
     </table>
-    <button class="btn btn-success" ng-click="submit">Submit</button>
+    <button class="btn btn-success" ng-click="submit()">Submit</button>
 </div>

@@ -17,12 +17,50 @@ app.controller('ExpertCtrl', ['$scope', function ($scope) {
         var arr = [];
         num = Number(num);
         for (var i = 0; i < num; i++) {
-            arr.push(i+1);
+            arr.push(i + 1);
         }
-        console.log(arr);
         return arr;
     };
-    $scope.submit = function(){
+    $scope.submit = function () {
+        var arr = [];
+        var estimate = [];
+        var sqrSum = 0;
+        $('input').each(function (index) {
+            arr.push({id: $(this).attr('data-num'), expert: $(this).attr('data-expert'), value: $(this).val()})
+        });
+        for (var i = 0; i < 10; i++) {
+            var temp = 0;
+            for (var j = 0; j < $scope.experts.expert; j++) {
+                arr.forEach(function (item, index) {
+                    if ((Number(item.expert) == j + 1) && (Number(item.id) == i + 1)) {
+                        temp += Number(item.value);
+                    }
+                });
+            }
+            estimate.push(temp);
+        }
+        var average = estimate.reduce(function (a, b) {
+                return a + b;
+            }) / 10;
 
+        $('[data-rang]').each(function (index) {
+            $(this).text(estimate[index]);
+        });
+        $('[data-average]').each(function (index) {
+            $(this).text(Math.round((estimate[index] - average) * 100) / 100);
+        });
+
+        $('[data-sqrt]').each(function (index) {
+            var item = Math.round((estimate[index] - average) * 100) / 100;
+            var itemPow = Math.round(Math.pow(item, 2) * 100) / 100;
+            sqrSum += itemPow;
+            $(this).text(itemPow);
+        });
+        var result = Math.round(100 * 12 * sqrSum / (Math.pow($scope.experts.expert, 2) * (990))) / 100;
+        if ( result > 0.5){
+            $('[data-result]').text(result + ' - Степень согласованности мнений экспертов удовлетворительна, в мерах повышения нет необходимости.');
+        } else {
+            $('[data-result]').text(result + ' - Степень согласованности мнений экспертов неудовлетворительна, необходимо предпринять меры по ее повышению.');
+        }
     }
 }]);
