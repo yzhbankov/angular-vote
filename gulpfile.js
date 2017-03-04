@@ -17,7 +17,8 @@ gulp.task('start', function(){
         .pipe(server({
             livereload:true,
             directoryListening: true,
-            open: true
+            open: true,
+            fallback: 'index.html'
         }));
 });
 
