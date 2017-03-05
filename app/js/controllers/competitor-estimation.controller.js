@@ -1,5 +1,5 @@
 /**
- * Created by Iaroslav Zhbankov on 02.03.2017.
+ * Created by Iaroslav Zhbankov on 05.03.2017.
  */
 app.controller('ServiceCtrl', ['$scope', 'Data', function ($scope, Data) {
     $scope.customers = {

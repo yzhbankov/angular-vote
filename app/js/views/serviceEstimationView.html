@@ -2,57 +2,79 @@
 <div class="container" ng-controller="ServiceCtrl">
     <form name="myForm">
         <label for="repeatSelect"> Количество клиентов: </label>
-        <select name="repeatSelect" id="repeatSelect" ng-model="experts.expert">
-            <option ng-repeat="option in experts.availableOptions" value="{{option.name}}">{{option.name}}</option>
+        <select name="repeatSelect" id="repeatSelect" ng-model="customers.customer">
+            <option ng-repeat="option in customers.availableOptions" value="{{option.name}}">{{option.name}}</option>
         </select>
     </form>
     <table>
         <col width="200px">
-        <col ng-repeat="i in getNumber(experts.expert)" width="100px">
+        <col ng-repeat="i in getNumber(customers.customer)" width="100px">
         <tr>
             <th>Показатель</th>
-            <th  ng-repeat="i in getNumber(experts.expert)">Клиент {{i}}</th>
+            <th  ng-repeat="i in getNumber(customers.customer)">Клиент {{i}}</th>
+            <th>Вес показателя</th>
+            <th>Средняя оценка потребителями</th>
         </tr>
         <tr>
             <td>Насколько просто и быстро можно получить страховую услугу</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '1' data-client="{{i}}"></td>
+            <td data-weight="1"></td>
+            <td data-customer="1"></td>
         </tr>
         <tr>
             <td>Насколько страховая компания заслуживает доверие</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '2' data-client="{{i}}"></td>
+            <td data-weight="2"></td>
+            <td data-customer="2"></td>
         </tr>
         <tr>
             <td>Привлекательность страховых тарифов</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '3' data-client="{{i}}"></td>
+            <td data-weight="3"></td>
+            <td data-customer="3"></td>
         </tr>
         <tr>
             <td>Оптимальность при соотношении цена – качество</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '4' data-client="{{i}}"></td>
+            <td data-weight="4"></td>
+            <td data-customer="4"></td>
         </tr>
         <tr>
             <td>Объем страхового покрытия</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '5' data-client="{{i}}"></td>
+            <td data-weight="5"></td>
+            <td data-customer="5"></td>
         </tr>
         <tr>
             <td>Размер франшизы</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '6' data-client="{{i}}"></td>
+            <td data-weight="6"></td>
+            <td data-customer="6"></td>
         </tr>
         <tr>
             <td>Количество основных и дополнительных услуг</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '7' data-client="{{i}}"></td>
+            <td data-weight="7"></td>
+            <td data-customer="7"></td>
         </tr>
         <tr>
             <td>Степень учета всего спектра возможных рисков</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '8' data-client="{{i}}"></td>
+            <td data-weight="8"></td>
+            <td data-customer="8"></td>
         </tr>
         <tr>
             <td>Простота норм страхового договора и ориентация на защиту интересов клиента</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '9' data-client="{{i}}"></td>
+            <td data-weight="9"></td>
+            <td data-customer="9"></td>
         </tr>
         <tr>
             <td>Быстрота, качество и справедливость урегулирования страховых случаев</td>
-            <td  ng-repeat="i in getNumber(experts.expert)"><input></td>
+            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '10' data-client="{{i}}"></td>
+            <td data-weight="10"></td>
+            <td data-customer="10"></td>
         </tr>
     </table>
-    <button class="btn btn-success" ng-click="submit">Submit</button>
+    <button class="btn btn-success" ng-click="submit()">Submit</button>
 </div>

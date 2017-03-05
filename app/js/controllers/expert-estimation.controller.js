@@ -1,7 +1,7 @@
 /**
  * Created by Iaroslav Zhbankov on 01.03.2017.
  */
-app.controller('ExpertCtrl', ['$scope', function ($scope) {
+app.controller('ExpertCtrl', ['$scope', 'Data', function ($scope, Data) {
     $scope.experts = {
         expert: 1,
         availableOptions: [
@@ -39,6 +39,8 @@ app.controller('ExpertCtrl', ['$scope', function ($scope) {
             }
             estimate.push(temp);
         }
+        Data.setExpertsData(estimate);
+
         var average = estimate.reduce(function (a, b) {
                 return a + b;
             }) / 10;
@@ -56,8 +58,9 @@ app.controller('ExpertCtrl', ['$scope', function ($scope) {
             sqrSum += itemPow;
             $(this).text(itemPow);
         });
+
         var result = Math.round(100 * 12 * sqrSum / (Math.pow($scope.experts.expert, 2) * (990))) / 100;
-        if ( result > 0.5){
+        if (result > 0.5) {
             $('[data-result]').text(result + ' - Степень согласованности мнений экспертов удовлетворительна, в мерах повышения нет необходимости.');
         } else {
             $('[data-result]').text(result + ' - Степень согласованности мнений экспертов неудовлетворительна, необходимо предпринять меры по ее повышению.');
