@@ -1,10 +1,10 @@
 /**
  * Created by Iaroslav Zhbankov on 27.02.2017.
  */
-app.factory('Auth', function () {
+app.factory('Auth', ['$window', function ($window) {
     var data = {
-        authorised: false,
-        username: ''
+        authorised: $window.localStorage.getItem('success'),
+        username: $window.localStorage.getItem('username')
     };
 
     return {
@@ -16,4 +16,4 @@ app.factory('Auth', function () {
             data.authorised = authorised;
         }
     };
-});
+}]);
