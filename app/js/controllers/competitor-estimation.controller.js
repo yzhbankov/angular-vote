@@ -1,7 +1,7 @@
 /**
  * Created by Iaroslav Zhbankov on 05.03.2017.
  */
-app.controller('ServiceCtrl', ['$scope', 'Data', function ($scope, Data) {
+app.controller('CompetitorCtrl', ['$scope', 'Data', function ($scope, Data) {
     $scope.customers = {
         customer: 1,
         availableOptions: [
@@ -24,6 +24,7 @@ app.controller('ServiceCtrl', ['$scope', 'Data', function ($scope, Data) {
     $scope.submit = function () {
         var arr = [];
         var estimate = [];
+        var competitorsAverageEstimation = [];
         $('input').each(function (index) {
             arr.push({id: $(this).attr('data-num'), customer: $(this).attr('data-client'), value: $(this).val()})
         });
@@ -38,20 +39,19 @@ app.controller('ServiceCtrl', ['$scope', 'Data', function ($scope, Data) {
             }
             estimate.push(temp);
         }
-        var customerEstimationSum = estimate.reduce(function (a, b) {
+        var competitorEstimationSum = estimate.reduce(function (a, b) {
             return a + b;
         });
 
-        $('[data-weight]').each(function (index) {
-            $(this).text(Math.round(100 * Data.getExpertsData().experts[index] / Data.getExpertsData().sum) / 100);
-        });
-
-        console.log(estimate);
-
         $('[data-customer]').each(function (index) {
-            $(this).text(Math.round(10 * estimate[index] / customerEstimationSum) / 10);
+            $(this).text(Data.getCustomersData()[index]);
         });
 
-        Data.getExpertsData();
+        $('[data-competitor]').each(function (index) {
+            competitorsAverageEstimation.push(Math.round(10 * estimate[index] / $scope.customers.customer) / 10);
+            $(this).text(Math.round(10 * estimate[index] / $scope.customers.customer) / 10);
+        });
+
+        Data.setCompetitorsData(competitorsAverageEstimation);
     }
 }]);

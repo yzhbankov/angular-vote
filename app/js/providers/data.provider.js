@@ -4,6 +4,7 @@
 app.factory('Data', function () {
     var experts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var customers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var competitors = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
     return {
         getExpertsData: function () {
@@ -20,6 +21,15 @@ app.factory('Data', function () {
         },
         getCustomersData: function () {
             return customers;
+        },
+        setCustomersData: function (data) {
+            customers = data;
+        },
+        getCompetitorsData: function () {
+            return competitors;
+        },
+        setCompetitorsData: function (data) {
+            competitors = data;
         }
     };
 });

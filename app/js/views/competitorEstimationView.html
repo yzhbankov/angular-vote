@@ -1,7 +1,7 @@
 <div class="title">Competitor Estimation</div>
 <div class="container" ng-controller="CompetitorCtrl">
     <form name="myForm">
-        <label for="repeatSelect"> Количество клиентов: </label>
+        <label for="repeatSelect"> РљРѕР»РёС‡РµСЃС‚РІРѕ РєР»РёРµРЅС‚РѕРІ: </label>
         <select name="repeatSelect" id="repeatSelect" ng-model="customers.customer">
             <option ng-repeat="option in customers.availableOptions" value="{{option.name}}">{{option.name}}</option>
         </select>
@@ -10,69 +10,69 @@
         <col width="200px">
         <col ng-repeat="i in getNumber(customers.customer)" width="100px">
         <tr>
-            <th>Показатель</th>
-            <th  ng-repeat="i in getNumber(customers.customer)">Клиент {{i}}</th>
-            <th>Вес показателя</th>
-            <th>Средняя оценка потребителями</th>
+            <th>РџРѕРєР°Р·Р°С‚РµР»СЊ</th>
+            <th ng-repeat="i in getNumber(customers.customer)">РљР»РёРµРЅС‚ {{i}}</th>
+            <th>РљРѕРЅРєСѓСЂРµРЅС‚</th>
+            <th>РљРѕРјРїР°РЅРёСЏ</th>
         </tr>
         <tr>
-            <td>Насколько просто и быстро можно получить страховую услугу</td>
-            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '1' data-client="{{i}}"></td>
-            <td data-weight="1"></td>
+            <td>РќР°СЃРєРѕР»СЊРєРѕ РїСЂРѕСЃС‚Рѕ Рё Р±С‹СЃС‚СЂРѕ РјРѕР¶РЅРѕ РїРѕР»СѓС‡РёС‚СЊ СЃС‚СЂР°С…РѕРІСѓСЋ СѓСЃР»СѓРіСѓ</td>
+            <td ng-repeat="i in getNumber(customers.customer)"><input data-num='1' data-client="{{i}}"></td>
+            <td data-competitor="1"></td>
             <td data-customer="1"></td>
         </tr>
         <tr>
-            <td>Насколько страховая компания заслуживает доверие</td>
-            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '2' data-client="{{i}}"></td>
-            <td data-weight="2"></td>
+            <td>РќР°СЃРєРѕР»СЊРєРѕ СЃС‚СЂР°С…РѕРІР°СЏ РєРѕРјРїР°РЅРёСЏ Р·Р°СЃР»СѓР¶РёРІР°РµС‚ РґРѕРІРµСЂРёРµ</td>
+            <td ng-repeat="i in getNumber(customers.customer)"><input data-num='2' data-client="{{i}}"></td>
+            <td data-competitor="2"></td>
             <td data-customer="2"></td>
         </tr>
         <tr>
-            <td>Привлекательность страховых тарифов</td>
-            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '3' data-client="{{i}}"></td>
-            <td data-weight="3"></td>
+            <td>РџСЂРёРІР»РµРєР°С‚РµР»СЊРЅРѕСЃС‚СЊ СЃС‚СЂР°С…РѕРІС‹С… С‚Р°СЂРёС„РѕРІ</td>
+            <td ng-repeat="i in getNumber(customers.customer)"><input data-num='3' data-client="{{i}}"></td>
+            <td data-competitor="3"></td>
             <td data-customer="3"></td>
         </tr>
         <tr>
-            <td>Оптимальность при соотношении цена – качество</td>
-            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '4' data-client="{{i}}"></td>
-            <td data-weight="4"></td>
+            <td>РћРїС‚РёРјР°Р»СЊРЅРѕСЃС‚СЊ РїСЂРё СЃРѕРѕС‚РЅРѕС€РµРЅРёРё С†РµРЅР° вЂ“ РєР°С‡РµСЃС‚РІРѕ</td>
+            <td ng-repeat="i in getNumber(customers.customer)"><input data-num='4' data-client="{{i}}"></td>
+            <td data-competitor="4"></td>
             <td data-customer="4"></td>
         </tr>
         <tr>
-            <td>Объем страхового покрытия</td>
-            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '5' data-client="{{i}}"></td>
-            <td data-weight="5"></td>
+            <td>РћР±СЉРµРј СЃС‚СЂР°С…РѕРІРѕРіРѕ РїРѕРєСЂС‹С‚РёСЏ</td>
+            <td ng-repeat="i in getNumber(customers.customer)"><input data-num='5' data-client="{{i}}"></td>
+            <td data-competitor="5"></td>
             <td data-customer="5"></td>
         </tr>
         <tr>
-            <td>Размер франшизы</td>
-            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '6' data-client="{{i}}"></td>
-            <td data-weight="6"></td>
+            <td>Р Р°Р·РјРµСЂ С„СЂР°РЅС€РёР·С‹</td>
+            <td ng-repeat="i in getNumber(customers.customer)"><input data-num='6' data-client="{{i}}"></td>
+            <td data-competitor="6"></td>
             <td data-customer="6"></td>
         </tr>
         <tr>
-            <td>Количество основных и дополнительных услуг</td>
-            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '7' data-client="{{i}}"></td>
-            <td data-weight="7"></td>
+            <td>РљРѕР»РёС‡РµСЃС‚РІРѕ РѕСЃРЅРѕРІРЅС‹С… Рё РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… СѓСЃР»СѓРі</td>
+            <td ng-repeat="i in getNumber(customers.customer)"><input data-num='7' data-client="{{i}}"></td>
+            <td data-competitor="7"></td>
             <td data-customer="7"></td>
         </tr>
         <tr>
-            <td>Степень учета всего спектра возможных рисков</td>
-            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '8' data-client="{{i}}"></td>
-            <td data-weight="8"></td>
+            <td>РЎС‚РµРїРµРЅСЊ СѓС‡РµС‚Р° РІСЃРµРіРѕ СЃРїРµРєС‚СЂР° РІРѕР·РјРѕР¶РЅС‹С… СЂРёСЃРєРѕРІ</td>
+            <td ng-repeat="i in getNumber(customers.customer)"><input data-num='8' data-client="{{i}}"></td>
+            <td data-competitor="8"></td>
             <td data-customer="8"></td>
         </tr>
         <tr>
-            <td>Простота норм страхового договора и ориентация на защиту интересов клиента</td>
-            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '9' data-client="{{i}}"></td>
-            <td data-weight="9"></td>
+            <td>РџСЂРѕСЃС‚РѕС‚Р° РЅРѕСЂРј СЃС‚СЂР°С…РѕРІРѕРіРѕ РґРѕРіРѕРІРѕСЂР° Рё РѕСЂРёРµРЅС‚Р°С†РёСЏ РЅР° Р·Р°С‰РёС‚Сѓ РёРЅС‚РµСЂРµСЃРѕРІ РєР»РёРµРЅС‚Р°</td>
+            <td ng-repeat="i in getNumber(customers.customer)"><input data-num='9' data-client="{{i}}"></td>
+            <td data-competitor="9"></td>
             <td data-customer="9"></td>
         </tr>
         <tr>
-            <td>Быстрота, качество и справедливость урегулирования страховых случаев</td>
-            <td  ng-repeat="i in getNumber(customers.customer)"><input data-num = '10' data-client="{{i}}"></td>
-            <td data-weight="10"></td>
+            <td>Р‘С‹СЃС‚СЂРѕС‚Р°, РєР°С‡РµСЃС‚РІРѕ Рё СЃРїСЂР°РІРµРґР»РёРІРѕСЃС‚СЊ СѓСЂРµРіСѓР»РёСЂРѕРІР°РЅРёСЏ СЃС‚СЂР°С…РѕРІС‹С… СЃР»СѓС‡Р°РµРІ</td>
+            <td ng-repeat="i in getNumber(customers.customer)"><input data-num='10' data-client="{{i}}"></td>
+            <td data-competitor="10"></td>
             <td data-customer="10"></td>
         </tr>
     </table>

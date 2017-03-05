@@ -24,6 +24,7 @@ app.controller('ServiceCtrl', ['$scope', 'Data', function ($scope, Data) {
     $scope.submit = function () {
         var arr = [];
         var estimate = [];
+        var customersAverageEstimation = [];
         $('input').each(function (index) {
             arr.push({id: $(this).attr('data-num'), customer: $(this).attr('data-client'), value: $(this).val()})
         });
@@ -38,6 +39,9 @@ app.controller('ServiceCtrl', ['$scope', 'Data', function ($scope, Data) {
             }
             estimate.push(temp);
         }
+
+        console.log(estimate);
+
         var customerEstimationSum = estimate.reduce(function (a, b) {
             return a + b;
         });
@@ -46,12 +50,11 @@ app.controller('ServiceCtrl', ['$scope', 'Data', function ($scope, Data) {
             $(this).text(Math.round(100 * Data.getExpertsData().experts[index] / Data.getExpertsData().sum) / 100);
         });
 
-        console.log(estimate);
-
         $('[data-customer]').each(function (index) {
-            $(this).text(Math.round(10 * estimate[index] / customerEstimationSum) / 10);
+            customersAverageEstimation.push(Math.round(10 * estimate[index] / $scope.customers.customer) / 10);
+            $(this).text(Math.round(10 * estimate[index] / $scope.customers.customer) / 10);
         });
 
-        Data.getExpertsData();
+        Data.setCustomersData(customersAverageEstimation);
     }
 }]);
