@@ -1,7 +1,7 @@
 /**
  * Created by Iaroslav Zhbankov on 05.03.2017.
  */
-app.controller('GraphCtrl', ['$scope', 'Data', '$location', 'Auth', function ($scope, Data, $location, Auth) {
+app.controller('GraphCtrl', ['$scope', 'Data', '$location', 'Auth', '$http', function ($scope, Data, $location, Auth, $http) {
     if (!Auth.getAuthData().authorised) {
         $location.path('/signin');
     }
@@ -97,6 +97,23 @@ app.controller('GraphCtrl', ['$scope', 'Data', '$location', 'Auth', function ($s
             {id: 'customer-6', name: '6'}
         ]
     };
-    //console.log(Data.getCustomersData());
-    //console.log(Data.getCompetitorsData());
+
+    $scope.submit = function () {
+        var title = $('input').val();
+        var username = Auth.getAuthData().username;
+        var customerData = Data.getCustomersData();
+        var competitorData = Data.getCompetitorsData();
+
+        $http({
+            method: 'POST',
+            url: 'http://localhost:3000/save-problem',
+            params: {user: username, title: title, customer: customerData, competitor: competitorData}
+        }).then(function successCallback(response) {
+            console.log(response);
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });
+    };
+
 }]);

@@ -1,4 +1,10 @@
 <div class="title">Сравнение показателей</div>
 <div class="container" ng-controller="GraphCtrl">
-<canvas id="myChart"></canvas>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+    <div class="center"><input type="text" placeholder="Введите название расчета"></div>
+    <div class="center">
+        <button class="btn btn-success" ng-click="submit()">Сохранить результаты расчетов</button>
+    </div>
 </div>

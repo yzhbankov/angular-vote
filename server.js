@@ -71,6 +71,57 @@ app.post('/signin', function (req, res) {
     });
 });
 
+app.post('/save-problem', function (req, res) {
+    var username = req.query.user;
+    var title = req.query.title;
+    var customer = req.query.customer;
+    var competitor = req.query.competitor;
+
+    MongoClient.connect(url, function (err, db) {
+        db.collection('problems').findOne({"username": username, "title": title}, function (err, item) {
+            if (item) {
+                db.close();
+                console.log("problem already exist");
+                res.send(false);
+            } else {
+                db.collection('problems').insertOne({
+                    "username": username,
+                    "title": title,
+                    "customer": customer,
+                    "competitor": competitor
+                }, function (err, result) {
+                    if (!err) {
+                        console.log("problem " + title + " added successfuly");
+                    }
+                });
+                db.close();
+                res.send(true);
+            }
+        });
+    });
+});
+
+app.get('/problems', function (req, res) {
+    var username = req.query.user;
+    MongoClient.connect(url, function (err, db) {
+        var resent = db.collection('problems').find({"username": username}, {
+            'username': true,
+            "title": true
+        }).toArray(function (err, result) {
+            if (result.length < 1) {
+                res.send([]);
+            } else {
+                var problems = [];
+                for (var i = 0; i < result.length; i++) {
+                    problems.push(result[i].title);
+                }
+                res.send(problems);
+            }
+        });
+        db.close();
+    });
+});
+
 app.listen(3000, function () {
     console.log('listening port 3000');
 });

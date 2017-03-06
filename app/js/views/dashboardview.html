@@ -1,4 +1,6 @@
-<div class="title">Личный кабинет</div>
+<div class="title">Р›РёС‡РЅС‹Р№ РєР°Р±РёРЅРµС‚</div>
 <div class="container" ng-controller="DashboardCtrl">
-
+    <div ng-repeat="problem in problems">
+        <a href="/problem/{{problem}}"><button class="btn btn-default">{{problem}}</button></a>
+    </div>
 </div>
