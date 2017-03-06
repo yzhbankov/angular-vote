@@ -8,7 +8,7 @@ app.config(function ($routeProvider, $locationProvider) {
     });
     $routeProvider
         .when('/', {
-            templateUrl: 'js/views/homeview.html'
+            templateUrl: 'js/views/indexview.html'
         })
         .when('/dashboard', {
             templateUrl: 'js/views/dashboardview.html'
