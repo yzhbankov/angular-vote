@@ -7,6 +7,12 @@ app.config(function ($routeProvider, $locationProvider) {
         requireBase: false
     });
     $routeProvider
+        .when('/', {
+            templateUrl: 'js/views/homeview.html'
+        })
+        .when('/dashboard', {
+            templateUrl: 'js/views/dashboardview.html'
+        })
         .when('/signup', {
             templateUrl: 'js/views/signupview.html'
         })

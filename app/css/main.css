@@ -34,3 +34,8 @@ th {
 
 .expert {
   width: 100px; }
+
+.features {
+  border-width: 0;
+  color: #007bb6;
+  font-size: 20px; }
