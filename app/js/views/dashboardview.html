@@ -1,6 +1,6 @@
 <div class="title">Личный кабинет</div>
 <div class="container" ng-controller="DashboardCtrl">
     <div ng-repeat="problem in problems">
-        <a href="/problem/{{problem}}"><button class="btn btn-default">{{problem}}</button></a>
+        <button class="btn btn-default" ng-click="redirect(problem)">{{problem}}</button>
     </div>
 </div>

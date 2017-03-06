@@ -13,6 +13,9 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/dashboard', {
             templateUrl: 'js/views/dashboardview.html'
         })
+        .when('/problem', {
+            templateUrl: 'js/views/problemView.html'
+        })
         .when('/signup', {
             templateUrl: 'js/views/signupview.html'
         })

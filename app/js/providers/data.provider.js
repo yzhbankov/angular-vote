@@ -5,7 +5,7 @@ app.factory('Data', function () {
     var experts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var customers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var competitors = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
+    var title = '';
     return {
         getExpertsData: function () {
             var sum = experts.reduce(function (a, b) {
@@ -30,6 +30,12 @@ app.factory('Data', function () {
         },
         setCompetitorsData: function (data) {
             competitors = data;
+        },
+        setTitle: function (data) {
+            title = data;
+        },
+        getTitle: function () {
+            return title;
         }
     };
 });

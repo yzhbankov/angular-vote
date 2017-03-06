@@ -122,6 +122,27 @@ app.get('/problems', function (req, res) {
     });
 });
 
+app.get('/problem', function (req, res) {
+    var username = req.query.user;
+    var title = req.query.title;
+    MongoClient.connect(url, function (err, db) {
+        db.collection('problems').findOne({"username": username, "title": title}, function (err, item) {
+            if (item) {
+                var username = item.username;
+                var title = item.title;
+                var customer = item.customer;
+                var competitor = item.competitor;
+                db.close();
+                res.send({username: username, title: title, customer: customer, competitor: competitor});
+            } else {
+                console.log('no such problem');
+                db.close();
+                res.send(null);
+            }
+        });
+    });
+});
+
 app.listen(3000, function () {
     console.log('listening port 3000');
 });
