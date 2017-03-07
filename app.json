@@ -1,0 +1,7 @@
+{
+  "name": "Insuarence compony competitor estimation",
+  "description": "A MEAN app that allows users to manage a contact list.",
+  "repository": "https://github.com/yzhbankov/angular-vote",
+  "keywords": ["node", "express", "angular", "MEAN", "mongodb", "REST", "API"],
+  "addons": ["mongolab"]
+}
