@@ -8,7 +8,8 @@ app.controller('DashboardCtrl', ['$scope', 'Data', '$location', 'Auth', '$http',
     //$route.reload();
     $http({
         method: 'GET',
-        url: 'http://localhost:3000/problems',
+        //url: 'http://localhost:3000/problems',
+        url: 'https://competiotion-e.herokuapp.com/problems',
         params: {user: Auth.getAuthData().username}
     }).then(function successCallback(response) {
         $scope.problems = response.data;
@@ -19,7 +20,7 @@ app.controller('DashboardCtrl', ['$scope', 'Data', '$location', 'Auth', '$http',
     $scope.redirect = function (title) {
         $http({
             method: 'GET',
-            url: 'http://localhost:3000/problem',
+            url: 'https://competiotion-e.herokuapp.com/problem',
             params: {user: Auth.getAuthData().username, title: title}
         }).then(function successCallback(response) {
             console.log(response.data);

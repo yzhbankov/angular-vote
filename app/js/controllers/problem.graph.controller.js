@@ -104,7 +104,7 @@ app.controller('ProblemGraphCtrl', ['$scope', 'Data', '$location', 'Auth', '$htt
         var title = Data.getTitle();
         $http({
             method: 'GET',
-            url: 'http://localhost:3000/delete',
+            url: 'https://competiotion-e.herokuapp.com/delete',
             params: {user: username, title: title}
         }).then(function successCallback(response) {
             console.log(response);

@@ -7,8 +7,8 @@ var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
 var cookieParser = require('cookie-parser');
 
-var url = 'mongodb://localhost:27017/voteApp';
-
+//var url = 'mongodb://localhost:27017/voteApp';
+var url = 'mongodb://yzhbankov:password1360@ds145208.mlab.com:45208/heroku_8k6sbvf2';
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
@@ -153,6 +153,6 @@ app.get('/delete', function (req, res) {
     });
 });
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
     console.log('listening port 3000');
 });
