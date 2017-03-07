@@ -1,11 +1,12 @@
-<div ng-controller="signupCtrl">
+<div class="title">Регисрация</div>
+<div class="space" ng-controller="signupCtrl">
     <div ng-hide="showDetails">
         <form class="form-horizontal" role="form" name="loginForm" novalidate>
             <div class="form-group">
                 <div class="col-sm-3">
                 </div>
                 <div class="col-sm-6">
-                    <input type="text" id="userName" name="userName" placeholder="User Name" class="form-control"
+                    <input type="text" id="userName" name="userName" placeholder="Имя пользователя" class="form-control"
                            ng-model="userName" required/>
                 </div>
                 <div class="col-sm-3">
@@ -26,17 +27,17 @@
                 <div class="col-sm-3">
                 </div>
                 <div class="col-sm-6">
-                    <input type="password" id="password" name="password" placeholder="Password" class="form-control"
+                    <input type="password" id="password" name="password" placeholder="Пароль" class="form-control"
                            ng-model="password" required/>
                 </div>
                 <div class="col-sm-3">
                 </div>
             </div>
-            <input type="submit" value="Login" class="btn btn-primary col-sm-offset-3"
+            <input type="submit" value="Регистраиця" class="btn btn-primary col-sm-offset-3"
                    ng-click="submit(userName, email, password)"/>
         </form>
     </div>
     <div class="title" ng-hide="!showDetails">
-        You sign up as {{author}}!!!
+        Вы зарегистрированы как {{author}}!!!
     </div>
 </div>

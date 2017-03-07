@@ -13,5 +13,8 @@
     <file url="file://$PROJECT_DIR$/app/js/views/indexview.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/js/views/problemView.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/js/views/serviceEstimationView.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/js/views/settingsview.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/js/views/signinview.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/js/views/signupview.html" charset="UTF-8" />
   </component>
 </project>

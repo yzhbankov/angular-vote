@@ -5,7 +5,7 @@ app.controller('DashboardCtrl', ['$scope', 'Data', '$location', 'Auth', '$http',
     if (!Auth.getAuthData().authorised) {
         $location.path('/signin');
     }
-    $route.reload();
+    //$route.reload();
     $http({
         method: 'GET',
         url: 'http://localhost:3000/problems',
