@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/app/js/controllers/competitor-estimation.controller.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/js/controllers/dashboard.controller.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/js/controllers/expert-estimation.controller.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/js/controllers/graph.controller.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/js/controllers/problem.graph.controller.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/js/views/competitorEstimationView.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/js/views/dashboardview.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/js/views/graphView.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/js/views/homeview.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/js/views/indexview.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/js/views/problemView.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/js/views/serviceEstimationView.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/js/views/settingsview.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/js/views/signinview.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/js/views/signupview.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/controllers/competitor-estimation.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/controllers/dashboard.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/controllers/expert-estimation.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/controllers/graph.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/controllers/problem.graph.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/views/competitorEstimationView.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/views/dashboardview.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/views/graphView.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/views/homeview.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/views/indexview.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/views/problemView.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/views/serviceEstimationView.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/views/settingsview.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/views/signinview.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/js/views/signupview.html" charset="UTF-8" />
   </component>
 </project>
