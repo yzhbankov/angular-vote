@@ -143,6 +143,16 @@ app.get('/problem', function (req, res) {
     });
 });
 
+app.get('/delete', function (req, res) {
+    var username = req.query.user;
+    var title = req.query.title;
+    MongoClient.connect(url, function (err, db) {
+        db.collection('problems').remove({"username": username, "title": title});
+        db.close();
+        res.send('problem removed');
+    });
+});
+
 app.listen(3000, function () {
     console.log('listening port 3000');
 });

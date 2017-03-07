@@ -99,22 +99,20 @@ app.controller('ProblemGraphCtrl', ['$scope', 'Data', '$location', 'Auth', '$htt
         ]
     };
 
-    $scope.submit = function () {
-        var title = $('input').val();
+    $scope.delete = function () {
         var username = Auth.getAuthData().username;
-        var customerData = Data.getCustomersData();
-        var competitorData = Data.getCompetitorsData();
-
+        var title = Data.getTitle();
         $http({
-            method: 'POST',
-            url: 'http://localhost:3000/save-problem',
-            params: {user: username, title: title, customer: customerData, competitor: competitorData}
+            method: 'GET',
+            url: 'http://localhost:3000/delete',
+            params: {user: username, title: title}
         }).then(function successCallback(response) {
             console.log(response);
         }, function errorCallback(response) {
             // called asynchronously if an error occurs
             // or server returns response with an error status.
         });
+        $location.path('/dashboard');
     };
 
 }]);

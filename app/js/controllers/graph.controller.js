@@ -103,7 +103,6 @@ app.controller('GraphCtrl', ['$scope', 'Data', '$location', 'Auth', '$http', fun
         var username = Auth.getAuthData().username;
         var customerData = Data.getCustomersData();
         var competitorData = Data.getCompetitorsData();
-
         $http({
             method: 'POST',
             url: 'http://localhost:3000/save-problem',
@@ -114,6 +113,7 @@ app.controller('GraphCtrl', ['$scope', 'Data', '$location', 'Auth', '$http', fun
             // called asynchronously if an error occurs
             // or server returns response with an error status.
         });
+        $location.path('/dashboard');
     };
 
 }]);

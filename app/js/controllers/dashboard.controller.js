@@ -1,10 +1,11 @@
 /**
  * Created by Iaroslav Zhbankov on 01.03.2017.
  */
-app.controller('DashboardCtrl', ['$scope', 'Data', '$location', 'Auth', '$http', function ($scope, Data, $location, Auth, $http) {
+app.controller('DashboardCtrl', ['$scope', 'Data', '$location', 'Auth', '$http', '$route', function ($scope, Data, $location, Auth, $http, $route) {
     if (!Auth.getAuthData().authorised) {
         $location.path('/signin');
     }
+    $route.reload();
     $http({
         method: 'GET',
         url: 'http://localhost:3000/problems',
