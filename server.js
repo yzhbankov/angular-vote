@@ -28,7 +28,6 @@ app.get('/', function (req, res) {
 });
 
 app.post('/signup', function (req, res) {
-    console.log(req.query);
     var username = req.query.user;
     var email = req.query.email;
     var password = req.query.password;
@@ -39,7 +38,6 @@ app.post('/signup', function (req, res) {
                 console.log("user already exist");
                 res.send(null);
             } else {
-                req.session.user = username;
                 db.collection('users').insertOne({
                     "username": username,
                     "email": email,
