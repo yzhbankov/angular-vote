@@ -21,13 +21,12 @@ app.use(function (req, res, next) {
 app.use(express.static(__dirname + '/app'));
 
 
-
 app.get('/', function (req, res) {
     res.render('index');
 });
 
 app.get('/dashboard', function (req, res) {
-    res.render('index');
+    res.sendfile('index.html');
 });
 
 app.get('/dashboard', function (req, res) {
