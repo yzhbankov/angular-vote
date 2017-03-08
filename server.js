@@ -9,6 +9,7 @@ var cookieParser = require('cookie-parser');
 
 //var url = 'mongodb://localhost:27017/voteApp';
 var url = 'mongodb://yzhbankov:password1360@ds051893.mlab.com:51893/heroku_47700xpx';
+mongodb://<dbuser>:<dbpassword>@ds051893.mlab.com:51893/heroku_47700xpx
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
@@ -66,7 +67,8 @@ app.post('/signin', function (req, res) {
                 res.send({success: true, username: username});
             } else {
                 db.close();
-                res.send({success: false, username: null});
+                res.status(401).send({ error: 'User not found!' });
+                //res.send({success: false, username: null});
             }
         });
     });
