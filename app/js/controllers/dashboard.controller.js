@@ -20,7 +20,7 @@ app.controller('DashboardCtrl', ['$scope', 'Data', '$location', 'Auth', '$http',
     $scope.redirect = function (title) {
         $http({
             method: 'GET',
-            url: 'https://competiotion-e.herokuapp.com/problem',
+            url: 'https://competiotion-e.herokuapp.com/get-problem',
             //url: 'http://localhost:3000/problem',
             params: {user: Auth.getAuthData().username, title: title}
         }).then(function successCallback(response) {

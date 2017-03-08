@@ -10,7 +10,6 @@ var cookieParser = require('cookie-parser');
 //var url = 'mongodb://localhost:27017/voteApp';
 var url = 'mongodb://yzhbankov:password1360@ds051893.mlab.com:51893/heroku_47700xpx';
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(cookieParser());
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -21,7 +20,7 @@ app.use(function (req, res, next) {
 });
 app.use(express.static(__dirname + '/app'));
 
-app.get('/', function (req, res) {
+app.get('/()|(dashboard)|(problem)|(signup)|(signin)|(logout)|(expert-estimation)|(service-estimation)|(competitor-estimation)|(graph)|(settings)/', function (req, res) {
     res.render('index');
 });
 
@@ -123,7 +122,7 @@ app.get('/problems', function (req, res) {
     });
 });
 
-app.get('/problem', function (req, res) {
+app.get('/get-problem', function (req, res) {
     var username = req.query.user;
     var title = req.query.title;
     MongoClient.connect(url, function (err, db) {
