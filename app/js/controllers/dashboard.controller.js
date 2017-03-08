@@ -12,7 +12,7 @@ app.controller('DashboardCtrl', ['$scope', 'Data', '$location', 'Auth', '$http',
         url: 'https://competiotion-e.herokuapp.com/problems',
         params: {user: Auth.getAuthData().username}
     }).then(function successCallback(response) {
-        console.log(response.data);
+        console.log(response);
         $scope.problems = response.data;
     }, function errorCallback(response) {
         // called asynchronously if an error occurs
