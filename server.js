@@ -25,7 +25,7 @@ app.get('/', function (req, res) {
     res.render('index');
 });
 
-app.get('(/dashboard)|(/problem)|(/signup)|(/signin)|(/logout)|(/expert-estimation)|(/service-estimation)|(/competitor-estimation)|(/graph)|(/settings)', function (req, res) {
+app.get('/dashboard', function (req, res) {
     res.sendfile("app/index.html");
 });
 
