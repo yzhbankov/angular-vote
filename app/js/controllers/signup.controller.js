@@ -20,6 +20,7 @@ app.controller('signupCtrl', ['$scope', '$http', 'Auth', '$window', function sig
                 console.log('____________________________________________________________________________');
                 console.log(response.data);
                 console.log(Auth.getAuthData());
+                Auth.setAuthData(true, response.data);
                 $window.localStorage['success'] = true;
             }, function errorCallback(response) {
                 // called asynchronously if an error occurs
