@@ -9,8 +9,6 @@ var cookieParser = require('cookie-parser');
 
 //var url = 'mongodb://localhost:27017/voteApp';
 var url = 'mongodb://yzhbankov:password1360@ds051893.mlab.com:51893/heroku_47700xpx';
-//mongodb://<dbuser>:<dbpassword>@ds051893.mlab.com:51893/heroku_47700xpx
-//var url = 'mongodb://yzhbankov:password1360@ds145208.mlab.com:45208/heroku_8k6sbvf2';
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 

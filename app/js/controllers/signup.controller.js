@@ -15,7 +15,8 @@ app.controller('signupCtrl', ['$scope', '$http', 'Auth', '$window', function sig
                     $scope.showDetails = true;
                 }
                 $scope.author = response.data;
-                $window.localStorage['username'] = response.data;
+                $window.localStorage['username'] = 'asdadasdadadsdasdaddadsadad';
+                //$window.localStorage['username'] = response.data;
                 $window.localStorage['success'] = true;
             }, function errorCallback(response) {
                 // called asynchronously if an error occurs
