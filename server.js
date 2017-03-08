@@ -24,6 +24,10 @@ app.get('/', function (req, res) {
     res.render('index');
 });
 
+app.get('/dashboard', function (req, res) {
+    res.render('index');
+});
+
 app.post('/signup', function (req, res) {
     var username = req.query.user;
     var email = req.query.email;
