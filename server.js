@@ -29,10 +29,6 @@ app.get('(/dashboard)|(/problem)|(/signup)|(/signin)|(/logout)|(/expert-estimati
     res.sendfile("app/index.html");
 });
 
-app.get('/dashboard', function (req, res) {
-    res.render('index');
-});
-
 app.post('/signup', function (req, res) {
     var username = req.query.user;
     var email = req.query.email;
