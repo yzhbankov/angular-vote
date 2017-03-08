@@ -10,6 +10,7 @@ var cookieParser = require('cookie-parser');
 //var url = 'mongodb://localhost:27017/voteApp';
 var url = 'mongodb://yzhbankov:password1360@ds051893.mlab.com:51893/heroku_47700xpx';
 app.use(bodyParser.urlencoded({extended: false}));
+app.set('view engine', 'html');
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
