@@ -16,7 +16,7 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/problem', {
             templateUrl: 'js/views/problemView.html'
         })
-        .when('/user-signup', {
+        .when('/signup', {
             templateUrl: 'js/views/signupview.html'
         })
         .when('/signin', {
