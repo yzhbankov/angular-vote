@@ -31,7 +31,6 @@ app.post('/signup', function (req, res) {
     var username = req.query.user;
     var email = req.query.email;
     var password = req.query.password;
-    res.status(500);
     MongoClient.connect(url, function (err, db) {
         db.collection('users').findOne({"username": username}, function (err, item) {
             if (item) {
