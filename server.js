@@ -25,7 +25,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/dashboard', function (req, res) {
-    res.redirect('/');
+    res.render('index');
 });
 
 app.get('/dashboard', function (req, res) {
