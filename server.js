@@ -20,7 +20,7 @@ app.use(function (req, res, next) {
 });
 app.use(express.static(__dirname + '/app'));
 
-app.get('/()|(dashboard)|(problem)|(signup)|(signin)|(logout)|(expert-estimation)|(service-estimation)|(competitor-estimation)|(graph)|(settings)/', function (req, res) {
+app.get('/()|(/dashboard)|(problem)|(signup)|(signin)|(logout)|(expert-estimation)|(service-estimation)|(competitor-estimation)|(graph)|(settings)/', function (req, res) {
     res.render('index');
 });
 
