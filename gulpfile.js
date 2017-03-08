@@ -30,17 +30,17 @@ gulp.task('server-start', function(){
 
 //style
 gulp.task('style', function(){
-    return gulp.src('src/sass/**/*.sass')
+    return gulp.src('app/sass/**/*.sass')
         .pipe(sass().on('error', sass.logError))
         .pipe(prefix({
             browsers: ['last 15 versions']
         }))
-        .pipe(gulp.dest('src/css'));
+        .pipe(gulp.dest('app/css'));
 });
 
 //build production files
 gulp.task('build', function(){
-    return gulp.src('src/*.html')
+    return gulp.src('app/*.html')
         .pipe(useref())
         .pipe(gulpif('*.js', uglify()))
         .pipe(gulpif('*.css', minifyCss()))
@@ -49,7 +49,7 @@ gulp.task('build', function(){
 
 //watch
 gulp.task('watch', function(){
-    gulp.watch('src/sass/**/*.sass', ['style'])
+    gulp.watch('app/sass/**/*.sass', ['style'])
 });
 
 gulp.task('default', ['start', 'server-start', 'watch']);

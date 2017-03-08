@@ -8,7 +8,8 @@ app.controller('signinCtrl', ['$scope', '$http', 'Auth', '$window', function sig
         if (!$scope.author) {
             $http({
                 method: 'POST',
-                url: 'https://competiotion-e.herokuapp.com/signin',
+                //url: 'https://competiotion-e.herokuapp.com/signin',
+                url: 'http://localhost:3000/signin',
                 params: {user: username, password: password}
             }).then(function successCallback(response) {
                 if (response.data.success) {
