@@ -20,6 +20,9 @@ app.use(function (req, res, next) {
 });
 app.use(express.static(__dirname + '/app'));
 
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'html');
+
 app.get('/', function (req, res) {
     res.render('index');
 });
