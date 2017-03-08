@@ -31,32 +31,29 @@ app.post('/signup', function (req, res) {
     var username = req.query.user;
     var email = req.query.email;
     var password = req.query.password;
+    res.status(500);
     MongoClient.connect(url, function (err, db) {
-        if (err) {
-            res.status(err);
-        } else {
-            db.collection('users').findOne({"username": username}, function (err, item) {
-                if (item) {
-                    db.close();
-                    console.log("user already exist");
-                    res.send(null);
-                } else {
-                    req.session.user = username;
-                    db.collection('users').insertOne({
-                        "username": username,
-                        "email": email,
-                        "password": password
-                    }, function (err, result) {
-                        if (!err) {
-                            console.log("user " + username + " added successfuly");
-                        }
-                    });
-                    db.close();
-                    console.log('user ' + username + ' is signing up');
-                    res.send(username);
-                }
-            });
-        }
+        db.collection('users').findOne({"username": username}, function (err, item) {
+            if (item) {
+                db.close();
+                console.log("user already exist");
+                res.send(null);
+            } else {
+                req.session.user = username;
+                db.collection('users').insertOne({
+                    "username": username,
+                    "email": email,
+                    "password": password
+                }, function (err, result) {
+                    if (!err) {
+                        console.log("user " + username + " added successfuly");
+                    }
+                });
+                db.close();
+                console.log('user ' + username + ' is signing up');
+                res.send(username);
+            }
+        });
     });
 });
 
