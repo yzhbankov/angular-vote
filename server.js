@@ -9,7 +9,8 @@ var cookieParser = require('cookie-parser');
 
 //var url = 'mongodb://localhost:27017/voteApp';
 var url = 'mongodb://yzhbankov:password1360@ds051893.mlab.com:51893/heroku_47700xpx';
-mongodb://<dbuser>:<dbpassword>@ds051893.mlab.com:51893/heroku_47700xpx
+//mongodb://<dbuser>:<dbpassword>@ds051893.mlab.com:51893/heroku_47700xpx
+//var url = 'mongodb://yzhbankov:password1360@ds145208.mlab.com:45208/heroku_8k6sbvf2';
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
@@ -31,27 +32,31 @@ app.post('/signup', function (req, res) {
     var email = req.query.email;
     var password = req.query.password;
     MongoClient.connect(url, function (err, db) {
-        db.collection('users').findOne({"username": username}, function (err, item) {
-            if (item) {
-                db.close();
-                console.log("user already exist");
-                res.send(null);
-            } else {
-                req.session.user = username;
-                db.collection('users').insertOne({
-                    "username": username,
-                    "email": email,
-                    "password": password
-                }, function (err, result) {
-                    if (!err) {
-                        console.log("user " + username + " added successfuly");
-                    }
-                });
-                db.close();
-                console.log('user ' + username + ' is signing up');
-                res.send(username);
-            }
-        });
+        if (err) {
+            res.status(err);
+        } else {
+            db.collection('users').findOne({"username": username}, function (err, item) {
+                if (item) {
+                    db.close();
+                    console.log("user already exist");
+                    res.send(null);
+                } else {
+                    req.session.user = username;
+                    db.collection('users').insertOne({
+                        "username": username,
+                        "email": email,
+                        "password": password
+                    }, function (err, result) {
+                        if (!err) {
+                            console.log("user " + username + " added successfuly");
+                        }
+                    });
+                    db.close();
+                    console.log('user ' + username + ' is signing up');
+                    res.send(username);
+                }
+            });
+        }
     });
 });
 
@@ -67,7 +72,7 @@ app.post('/signin', function (req, res) {
                 res.send({success: true, username: username});
             } else {
                 db.close();
-                res.status(401).send({ error: 'User not found!' });
+                res.status(401).send({error: 'User not found!'});
                 //res.send({success: false, username: null});
             }
         });
