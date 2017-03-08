@@ -26,7 +26,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/dashboard', function (req, res) {
-    res.sendfile("/index.html");
+    res.sendfile("app/index.html");
 });
 
 app.get('/dashboard', function (req, res) {
