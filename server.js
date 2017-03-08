@@ -19,9 +19,10 @@ app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 });
+app.use(express.static(__dirname + '/app'));
 
-app.get('/test', function (req, res) {
-    console.log(req.session);
+app.get('/', function (req, res) {
+    res.render('index');
 });
 
 app.post('/signup', function (req, res) {
