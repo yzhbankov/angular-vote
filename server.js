@@ -25,6 +25,10 @@ app.get('/', function (req, res) {
 });
 
 app.get('/dashboard', function (req, res) {
+    res.redirect('/');
+});
+
+app.get('/dashboard', function (req, res) {
     res.render('index');
 });
 
