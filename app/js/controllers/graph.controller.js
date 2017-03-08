@@ -105,8 +105,8 @@ app.controller('GraphCtrl', ['$scope', 'Data', '$location', 'Auth', '$http', fun
         var competitorData = Data.getCompetitorsData();
         $http({
             method: 'POST',
-            //url: 'https://competiotion-e.herokuapp.com/save-problem',
-            url: 'http://localhost:3000/save-problem',
+            url: 'https://competiotion-e.herokuapp.com/save-problem',
+            //url: 'http://localhost:3000/save-problem',
             params: {user: username, title: title, customer: customerData, competitor: competitorData}
         }).then(function successCallback(response) {
             console.log(response);
