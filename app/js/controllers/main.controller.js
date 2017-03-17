@@ -3,7 +3,5 @@
  */
 
 app.controller('mainCtrl', ['$scope', 'Auth', function mainCtlr($scope, Auth) {
-
     $scope.Auth = Auth.getAuthData();
-
 }]);

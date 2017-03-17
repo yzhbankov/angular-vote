@@ -6,7 +6,6 @@ app.factory('Auth', ['$window', function ($window) {
         authorised: $window.localStorage.getItem('success'),
         username: $window.localStorage.getItem('username')
     };
-
     return {
         getAuthData: function () {
             return data;
