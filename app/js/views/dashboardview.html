@@ -1,5 +1,5 @@
 <div class="title">Выполненные расчеты</div>
-<div class="space container" ng-controller="DashboardCtrl">
+<div class="space row" ng-controller="DashboardCtrl">
     <div ng-repeat="problem in problems">
         <button class="btn btn-default" ng-click="redirect(problem)">{{problem}}</button>
     </div>
